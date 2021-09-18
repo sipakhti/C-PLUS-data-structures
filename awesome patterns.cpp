@@ -77,7 +77,7 @@ void print_inverted_half_pyramid(int height) {
     // outer loop iterates over the rows
     for (int i = height; i > 0; i--){
         for (size_t j = 0; j < i; j++)
-            cout << RED_FG << " * " << ENDCgi;
+            cout << RED_FG << " * " << ENDC;
         for (size_t k = 0; k < (height - i); k++)
             cout << RED_BG << "   " << ENDC;
         cout << endl;
