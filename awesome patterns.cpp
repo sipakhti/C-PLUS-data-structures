@@ -27,20 +27,24 @@ void print_half_right_pyramid(int);
 void print_number_half_left_pyramid(int);
 void print_floyd_triangle(int);
 void print_butterfly(int);
+void print_binary_half_left_pyramid(int);
+void print_palindromic_number_pyramid(int);
 
 int main() {
-    // cout << FAIL;
-    print_rectangle(5,5);
-    // cout << OKBLUE;
-    print_hollow_rectangle(5,5);
-    // cout << OKGREEN;
-    print_inverted_half_pyramid(5);
-    // cout << WARNING;
-    print_half_right_pyramid(5);
-    // cout << ENDC;
-    print_number_half_left_pyramid(5);
-    print_floyd_triangle(5);
-    print_butterfly(5);
+    // // cout << FAIL;
+    // print_rectangle(5,5);
+    // // cout << OKBLUE;
+    // print_hollow_rectangle(5,5);
+    // // cout << OKGREEN;
+    // print_inverted_half_pyramid(5);
+    // // cout << WARNING;
+    // print_half_right_pyramid(5);
+    // // cout << ENDC;
+    // print_number_half_left_pyramid(5);
+    // print_floyd_triangle(5);
+    // print_butterfly(5);
+    // print_binary_half_left_pyramid(5);
+    print_palindromic_number_pyramid(9);
     return 0;
 }
 
@@ -159,3 +163,39 @@ void print_butterfly(int size) {
     }
     
 }
+
+void print_binary_half_left_pyramid(int height){
+    for (size_t i = 1; i <= height; i++)
+    {
+        for (size_t j = 0; j < i; j++)
+        {
+            cout << " " << (i+j)%2 << " ";
+        }
+        cout << endl;
+        
+    }
+    
+}
+
+void print_palindromic_number_pyramid(int height) {
+
+    for (size_t i = 1; i <= height; i++)
+    {
+        int spaces = height - i;
+        for (size_t j = 0; j < spaces; j++)
+        {
+            cout << "   ";
+        }
+        for (size_t j = i; j > 0; j--)
+        {
+            cout << " " << j << " ";
+        }
+        for (size_t j = 2; j <= i; j++)
+        {
+            cout << " " << j << " ";
+        }
+        cout << endl;
+    }
+    
+}
+
