@@ -23,7 +23,10 @@ void print_rectangle(int, int);
 bool is_boundry(int,int,int);
 void print_hollow_rectangle(int,int);
 void print_inverted_half_pyramid(int);
-void print_half_pyramid(int);
+void print_half_right_pyramid(int);
+void print_number_half_left_pyramid(int);
+void print_floyd_triangle(int);
+void print_butterfly(int);
 
 int main() {
     // cout << FAIL;
@@ -33,8 +36,11 @@ int main() {
     // cout << OKGREEN;
     print_inverted_half_pyramid(5);
     // cout << WARNING;
-    print_half_pyramid(5);
+    print_half_right_pyramid(5);
     // cout << ENDC;
+    print_number_half_left_pyramid(5);
+    print_floyd_triangle(5);
+    print_butterfly(5);
     return 0;
 }
 
@@ -84,7 +90,7 @@ void print_inverted_half_pyramid(int height) {
     }
 }
 
-void print_half_pyramid(int height){
+void print_half_right_pyramid(int height){
     for (int i = height; i > 0; i--)
     {
         int spaces = i - 1;
@@ -93,6 +99,62 @@ void print_half_pyramid(int height){
             cout << RED_BG << "   " << ENDC;
         for (size_t k = 0; k < stars; k++)
             cout << RED_FG << " * " << ENDC;
+        cout << endl;
+    }
+    
+}
+
+void print_number_half_left_pyramid(int height){
+    for (size_t i = 1; i <= height; i++)
+    {
+        for (size_t j = 0; j < i; j++)
+        {
+            cout << " " << i << " ";
+        }
+        cout << endl;
+        
+    }
+    
+}
+
+void print_floyd_triangle(int height){
+    int count = 1;
+    for (size_t i = 1; i <= height; i++)
+    {
+        for (size_t j = 0; j < i; j++)
+        {
+            cout << " " << count++ << " ";
+        }
+        cout << endl;
+        
+    }
+    
+}
+
+void print_butterfly(int size) {
+    int width = size*2;
+    for (int i = 0; i <= size; i++)
+    {
+        int spaces = (size - i)*2;
+
+        for (size_t j = 0; j < i; j++)
+            cout << " * ";
+        for (size_t j = 0; j < spaces; j++)
+            cout << "   ";
+        for (size_t j = 0; j < i; j++)
+            cout << " * ";
+        cout << endl;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        int stars = size - i;
+        int spaces = width - (stars*2);
+        for (size_t j = 0; j < stars; j++)
+            cout << " * ";
+        for (size_t j = 0; j < spaces; j++)
+            cout << "   ";
+        for (size_t j = 0; j < stars; j++)
+            cout << " * ";
         cout << endl;
     }
     
