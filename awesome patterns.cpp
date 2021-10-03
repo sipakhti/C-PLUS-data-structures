@@ -29,6 +29,8 @@ void print_floyd_triangle(int);
 void print_butterfly(int);
 void print_binary_half_left_pyramid(int);
 void print_palindromic_number_pyramid(int);
+void print_diamond(int);
+void print_hollow_diamond(int);
 
 int main() {
     // // cout << FAIL;
@@ -44,7 +46,10 @@ int main() {
     // print_floyd_triangle(5);
     // print_butterfly(5);
     // print_binary_half_left_pyramid(5);
-    print_palindromic_number_pyramid(9);
+    // print_palindromic_number_pyramid(9);
+
+    // print_diamond(5);
+    print_hollow_diamond(5);
     return 0;
 }
 
@@ -199,3 +204,62 @@ void print_palindromic_number_pyramid(int height) {
     
 }
 
+void print_diamond(int rows) {
+    int spaces;
+
+    for (size_t i = 1; i <= rows; i++)
+    {
+        spaces = rows - i;
+        for (size_t j = 0; j < spaces; j++)
+            cout << " ";
+        for (size_t j = 0; j < 2*i-1; j++)
+            cout << "*";
+        cout << endl;
+    }
+    
+    for (size_t i = rows; i > 0; i--)
+    {
+        spaces = rows - i;
+        for (size_t j = 0; j < spaces; j++)
+            cout << " ";
+        for (size_t j = 0; j < 2*i-1; j++)
+            cout << "*";
+        cout << endl;
+    }
+    
+}
+
+void print_hollow_diamond(int rows) {
+        int spaces;
+
+    for (size_t i = 0; i < rows; i++)
+    {
+        spaces = rows - i;
+        for (size_t j = 0; j < spaces; j++)
+            cout << " ";
+        cout << "*";
+        int blanks = 2*i-1;
+        for (int j = 0; j < blanks; j++)
+        {
+            cout << " ";
+        }
+        cout << "*";
+        
+        cout << endl;
+    }
+    for (size_t i = rows; i > 0; i--)
+    {
+        spaces = rows - i;
+        for (size_t j = 0; j < spaces; j++)
+            cout << " ";
+        cout << "*";
+        for (int j = 0; j < 2*i-1; j++)
+        {
+            cout << " ";
+        }
+        cout << "*";
+        
+        cout << endl;
+    }
+    
+}
