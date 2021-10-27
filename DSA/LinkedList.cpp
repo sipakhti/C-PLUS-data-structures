@@ -2,6 +2,11 @@
 
 using namespace std;
 
+namespace COLOR
+{
+    
+} // namespace COLOR
+
 
 
 class LinkedList
