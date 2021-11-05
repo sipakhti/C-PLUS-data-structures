@@ -9,12 +9,16 @@ void swap(char*, char*);
 void printArray(char**, int);
 
 
+
 int main(){
 
     char** names = new char*[5];
     for (size_t i = 0; i < 5; i++)
     {
         names[i] = new char(50);
+        for (size_t j = 0; j < 50; j++)
+            names[i][j] = '\0';
+        
         cout << "Enter Name(" << i+1 << "): ";
         cin.getline(names[i],50);
     }
@@ -48,7 +52,7 @@ void printArray(char** wordList, int listSize){
 
 void sort(char** wordList, int listSize){
     for (size_t i = 0; i < listSize; i++){ // iterate over item list
-        for (size_t j = i; j < listSize - i - 1; j++){ // compares 
+        for (size_t j = 0; j < listSize - i - 1; j++){ // compares 
             if (compare(wordList[j], wordList[j+1])){
                 swap(wordList[j], wordList[j+1]);
             }
@@ -75,11 +79,10 @@ bool compare(char* str1, char* str2, int& depth){
         return  true;
     if (str2[depth] == '\0')
         return false;
-    if (str1[depth] < str2[depth] )
+    if (str1[depth] > str2[depth] )
         return true;
-    if (str1[depth] > str2[depth])
+    if (str1[depth] < str2[depth])
         return false;
-    cout << str1 << endl;
     return compare(str1, str2, ++depth);
 }
 
